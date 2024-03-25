@@ -1,0 +1,135 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<h1> Welcome to my Form </h1> 
+<link rel="stylesheet" type="text/css" href="formStyle.css">
+<script  language="javascript" type ="text/javascript">
+
+function validate() {
+var letters = /^[a-zA-Z]+$/; 
+var d = new Date();
+var fname=document.getElementById("fname").value;
+var submitOK="true";
+if (fname.length>3 && fname.match(letters))
+ {
+ submitOK="true";
+ }
+ else {
+ alert("The Forename must be more than 2 characters and only Alpha Characters");
+ submitOK="false";
+
+}
+
+var lname=document.getElementById("lname").value;
+var submitOK="true";
+if (lname.length>3 && lname.match(letters))
+ {
+ submitOK="true";
+ }
+ else {
+ alert("The Surname must be more than 2 characters and only Alpha Characters");
+ submitOK="false";
+
+}
+
+var genders = document.getElementsByName("gender");
+submitOK="true"; 
+if (gender[0].checked == true) {
+	submitOK="true"
+} else if (gender[1].checked == true) {
+	submitOK="true"
+} else {
+	alert("you must select a gender"); 
+}
+
+var dob = document.getElementById("date").value;
+if ( dob > "01/01/1913")
+	{ 
+	submitOK="true";
+	} else { 
+	alert("Please enter date after 01/01/1913");
+	submitOK="false";
+	}
+
+var age = document.getElementById("UserAge").value; 
+if (( age > 12) && (age < 150))
+	{ 
+	submitOK="true"; 
+	}else { 
+	alert (" age must be over 12 but less then 150");
+	submitOK="false"; 
+	} 
+
+var Course = document.getElementById("Course"); 
+if(Course.selectedIndex==0){ 
+alert ("Please select a course") 
+submitOK="false"; 
+} 
+else { 
+submitOK="true"; 
+} 
+
+function submit () {
+if (submitOK = "true") 
+	{ 
+	alert("Validation passed, if validation passed."); 
+	} 
+  }
+  
+  
+  
+}
+
+</script></head><body> 
+
+<form name="frmRegister"  onsubmit="return validate()" method=post >
+<br/>
+	Forename: <input type="text" id="fname" name="frmForename"> <br/>
+	<br/>
+	
+	Please enter Surname: <input type="text" id= "lname"  name="frmSurname"> <br/>
+<br/>
+    Please select Gender: 
+		<input type="radio" id="gender" name="frmGender" value="Female" > 
+        Female
+       <input type="radio" id="gender" name="frmGender" value="Male"> 
+        Male
+     
+	<br/>
+  	<br/>
+    Please enter your Date of Birth:
+		<input type="text" id="date" name="frmDateOfBirth">
+	<br/>
+		<br/>
+	Please enter your age: 
+		  <input type="textbox" id="UserAge" name="frmAge">
+
+  <br/> 
+
+	<br/>
+Please select Course you're on?:
+<select id="Course" name="frmCourse">
+    <option value="selectcard">--- Please select ---</option>
+    <option value="Databases">Databases</option>
+    <option value="Networks">Networks</option>
+    <option value="Websites">Websites</option>
+    <
+</select>
+<br/>
+
+  <br/>
+
+Please enter the date registered: <input type="text" id="dateReg" name="frmDateReg"> <br/> 
+
+	
+	<br/>
+		<br/>
+
+	<button onclick="submit()"> submit</button> 
+
+	<button onclick=document.getElementById('frmRegister').reset();> Clear Form</button> 
+		<br/>
+			<br/>
+</form>
+</body>
+</html>
